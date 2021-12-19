@@ -1,7 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Focus from './components/focus-tree/Focus';
+import Tree from './components/focus-tree/Tree';
+
+const AppDispatch = React.createContext(null);
 
 function App() {
   return (
@@ -10,7 +12,7 @@ function App() {
         HoI4 Focus Tree Browser
       </header>
       <main>
-        <Focus name="The Zinovyevite-Trotskyite Terrorist Center" />
+        <Tree name="The Path of Marxism-Leninism" />
       </main>
     </div>
   );
