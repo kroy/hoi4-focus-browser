@@ -10,8 +10,7 @@ type FocusProps = {
 function Focus(props: FocusProps) {
   return (
     <div>
-      <p onClick={ props.toggleCallback }>National Focus: {props.name}</p>
-      <p> selected? { props.selected ? "yes" : "no" } </p>
+      <button onClick={ props.toggleCallback }>National Focus: {props.name} selected? { props.selected ? "yes" : "no" }</button>
     </div>
 
   );
