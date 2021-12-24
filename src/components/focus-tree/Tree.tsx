@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import Focus from './Focus';
 
 type TreeProps = {
@@ -12,18 +12,15 @@ function Tree(props: TreeProps) {
     return props.selectedFocusIds.includes(id)
   }
 
-  function buildFocus(id: number, name: string, selected: boolean) {
-    return <Focus id={id} name={name} selected={selected} />;
+  function buildFocus(id: number, name: string) {
+    return <Focus id={id} name={name} selected={isSelected(id)} />;
   }
-
-  const firstFocus = useMemo(() => buildFocus(1, "The Zinovyevite-Trotskyite Terrorist Center", isSelected(1)), [isSelected(1)]);
-  const secondFocus = useMemo(() => buildFocus(2, "The Path of Marxism-Leninism Focus", isSelected(2)), [isSelected(2)]);
 
   return (
     <div>
       <h1 className="text-3xl font-bold underline">{props.name} Selected Focuses: { props.selectedFocusIds.length }</h1>
-      { firstFocus }
-      { secondFocus }
+      { buildFocus(1, "The Zinovyevite-Trotskyite Terrorist Center") }
+      { buildFocus(2, "The Path of Marxism-Leninism Focus") }
     </div>
 
   );

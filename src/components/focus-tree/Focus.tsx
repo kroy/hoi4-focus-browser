@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, memo } from 'react';
 import { AppContext } from '../../App';
 
 type FocusProps = {
@@ -22,4 +22,4 @@ function Focus(props: FocusProps) {
   );
 }
 
-export default Focus;
+export default memo(Focus);
