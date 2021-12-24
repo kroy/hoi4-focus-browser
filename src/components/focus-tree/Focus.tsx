@@ -1,5 +1,5 @@
 import React, { useContext, memo } from 'react';
-import { AppContext } from '../../App';
+import { AppDispatch } from '../../App';
 
 type FocusProps = {
   id: number;
@@ -8,8 +8,7 @@ type FocusProps = {
 };
 
 function Focus(props: FocusProps) {
-  const dispatch = useContext(AppContext);
-  console.log("rendering", props.name);
+  const dispatch = useContext(AppDispatch);
 
   function handleClick() {
     dispatch({ type: props.selected ? "deselect" : "select", focusId: props.id });

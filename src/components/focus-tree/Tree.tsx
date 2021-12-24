@@ -2,8 +2,12 @@ import React from 'react';
 import Focus from './Focus';
 
 type TreeProps = {
-  name: string;
   selectedFocusIds: number[];
+  name: string;
+  children: Array<{
+    id: number;
+    name: string;
+  }>;
 };
 
 function Tree(props: TreeProps) {
@@ -12,15 +16,16 @@ function Tree(props: TreeProps) {
     return props.selectedFocusIds.includes(id)
   }
 
-  function buildFocus(id: number, name: string) {
-    return <Focus id={id} name={name} selected={isSelected(id)} />;
+  function buildFocus(child: { id: number; name: string }) {
+    return <Focus key={child.id} id={child.id} name={child.name} selected={isSelected(child.id)} />;
   }
+
+  const childFocuses = props.children.map((child) => buildFocus(child));
 
   return (
     <div>
       <h1 className="text-3xl font-bold underline">{props.name} Selected Focuses: { props.selectedFocusIds.length }</h1>
-      { buildFocus(1, "The Zinovyevite-Trotskyite Terrorist Center") }
-      { buildFocus(2, "The Path of Marxism-Leninism Focus") }
+      { childFocuses }
     </div>
 
   );
