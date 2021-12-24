@@ -8,7 +8,7 @@ type FocusProps = {
 };
 
 function Focus(props: FocusProps) {
-  const { state, dispatch } = useContext(AppContext);
+  const dispatch = useContext(AppContext);
   console.log("rendering", props.name);
 
   function handleClick() {
@@ -16,10 +16,9 @@ function Focus(props: FocusProps) {
   }
 
   return (
-    <div>
-      <button onClick={ handleClick }>National Focus: {props.name} selected? { props.selected ? "yes" : "no" }</button>
-    </div>
-
+    <button className="p-2 border-solid border-2" onClick={ handleClick }>
+      National Focus: {props.name} selected? { props.selected ? "yes" : "no" }
+    </button>
   );
 }
 

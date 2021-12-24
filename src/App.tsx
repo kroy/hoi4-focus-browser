@@ -24,12 +24,12 @@ function reducer(state: AppState, action: AppAction): AppState {
   }
 }
 
-export const AppContext = createContext<{state: AppState, dispatch: Dispatch<AppAction>}>({state: initialState, dispatch: () => null});
+export const AppContext = createContext<Dispatch<AppAction>>(() => null);
 
 export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <AppContext.Provider value={{ state, dispatch }}>
+    <AppContext.Provider value={ dispatch }>
       <div className="App">
         <header className="App-header">
           HoI4 Focus Tree Browser
