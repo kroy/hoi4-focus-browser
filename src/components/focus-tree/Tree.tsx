@@ -1,31 +1,30 @@
 import React from 'react';
-import Focus from './Focus';
+import TreeDefinition from '../../types/TreeDefinition';
+import TreeNode from './TreeNode';
 
+// this is supposed to represent the full focus tree
 type TreeProps = {
   selectedFocusIds: number[];
-  name: string;
-  children: Array<{
-    id: number;
-    name: string;
-  }>;
+  treeDefinition: TreeDefinition;
 };
 
 function Tree(props: TreeProps) {
 
-  function isSelected(id: number): boolean {
-    return props.selectedFocusIds.includes(id)
+  function buildRootNode(id: number) {
+    return <TreeNode
+      key={id}
+      id={id}
+      selectedFocusIds={props.selectedFocusIds}
+      nodes={props.treeDefinition.nodes}
+    />
   }
 
-  function buildFocus(child: { id: number; name: string }) {
-    return <Focus key={child.id} id={child.id} name={child.name} selected={isSelected(child.id)} />;
-  }
-
-  const childFocuses = props.children.map((child) => buildFocus(child));
+  const rootNodes = props.treeDefinition.rootNodeIds.map((id) => buildRootNode(id));
 
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">{props.name} Selected Focuses: { props.selectedFocusIds.length }</h1>
-      { childFocuses }
+      <h1 className="text-3xl font-bold underline">Selected Focuses: { props.selectedFocusIds.length }</h1>
+      { rootNodes }
     </div>
 
   );

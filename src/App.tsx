@@ -1,17 +1,13 @@
 import React, { useReducer, createContext, Dispatch } from 'react';
 import './App.css';
 import Tree from './components/focus-tree/Tree';
+import { NodeDict } from './types/NodeData';
+import TreeDefinition from './types/TreeDefinition';
 
 // TODO extract types
 type AppState = {
   selectedFocusIds: number[];
-  trees: Array<{
-    name: string;
-    children: Array<{
-      id: number;
-      name: string;
-    }>;
-  }>
+  treeDefinition: TreeDefinition;
 }
 
 type AppAction = {
@@ -19,19 +15,49 @@ type AppAction = {
   focusId: number;
 }
 
-const firstTestTree = { name: "The Path of Marxism-Leninism", children: [ { id: 1, name: "The Path of Marxism-Leninism"}, { id: 2, name: "The Left Opposition"}] }
+const testData: NodeDict = {
+  0: {
+    focus: {
+      id: 0,
+      name: "The Path of Marxism-Leninism"
+    },
+    preReqIds: [],
+    directChildIds: [1, 2]
+  },
+  1: {
+    focus: {
+      id: 1,
+      name: "Stalinism"
+    },
+    preReqIds: [0],
+    directChildIds: []
+  },
+  2: {
+    focus:{
+      id: 2,
+      name: "The Left Opposition"
+    },
+    preReqIds: [0],
+    directChildIds: []
+  }
+}
 
-const initialState = {
+const testTreeDef: TreeDefinition = {
+  rootNodeIds: [0],
+  nodes: testData
+}
+
+const initialState: AppState = {
   selectedFocusIds: [],
-  trees: [firstTestTree]
+  treeDefinition: testTreeDef
 };
 
 function reducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
     case 'select':
-      return { selectedFocusIds: [ ...state.selectedFocusIds, action.focusId ], trees: [firstTestTree] };
+      return { selectedFocusIds: [ ...state.selectedFocusIds, action.focusId ], treeDefinition: testTreeDef };
     case 'deselect':
-      return { selectedFocusIds: state.selectedFocusIds.filter(focusId => focusId !== action.focusId), trees: [firstTestTree] };
+      return { selectedFocusIds: state.selectedFocusIds.filter(focusId => focusId !== action.focusId), treeDefinition: testTreeDef };
     default:
       return state;
   }
@@ -48,7 +74,7 @@ export default function App() {
           HoI4 Focus Tree Browser
         </header>
         <main>
-          <Tree selectedFocusIds={state.selectedFocusIds} {...state.trees[0]} />
+          <Tree {...state} />
         </main>
       </div>
     </AppDispatch.Provider>

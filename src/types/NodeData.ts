@@ -1,0 +1,14 @@
+import FocusData from './FocusData';
+
+type NodeData = {
+  focus: FocusData;
+  preReqIds: number[];
+  directChildIds: number[];
+}
+
+// TODO: this seems pointless
+export type NodeDict = {
+  [key: number]: NodeData
+}
+
+export default NodeData;
