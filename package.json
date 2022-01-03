@@ -8,14 +8,10 @@
     "@testing-library/user-event": "^13.2.1",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
-    "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
-    "autoprefixer": "^10.4.0",
-    "postcss": "^8.4.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
-    "tailwindcss": "^3.0.7",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },
@@ -43,5 +39,10 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/react": "^17.0.20",
+    "autoprefixer": "^10.4.1",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.9"
+  }
 }

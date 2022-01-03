@@ -1,8 +1,8 @@
 import React, { useReducer, createContext, Dispatch } from 'react';
 import './App.css';
 import Tree from './components/focus-tree/Tree';
-import { NodeDict } from './types/NodeData';
-import TreeDefinition from './types/TreeDefinition';
+import { NodeDict } from '@/datatypes/NodeData';
+import TreeDefinition from '@/datatypes/TreeDefinition';
 
 // TODO extract types
 type AppState = {
