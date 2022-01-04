@@ -20,7 +20,7 @@ function Focus(props: FocusProps) {
   }
 
   return (
-    <button className="p-2 border-solid border-2" onClick={ handleClick }>
+    <button className={"p-2 border-solid border-2" + (props.selectable ? "" : " border-red-400")} onClick={ handleClick }>
       National Focus: {props.name} selected? { props.selected ? "yes" : "no" }
     </button>
   );
