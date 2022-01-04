@@ -5,13 +5,18 @@ type FocusProps = {
   id: number;
   name: string;
   selected: boolean;
+  selectable: boolean;
 };
 
 function Focus(props: FocusProps) {
   const dispatch = useContext(AppDispatch);
 
   function handleClick() {
-    dispatch({ type: props.selected ? "deselect" : "select", focusId: props.id });
+    if (props.selectable) {
+      dispatch({ type: props.selected ? "deselect" : "select", focusId: props.id })
+    } else {
+      dispatch({ type: "deselect", focusId: props.id })
+    }
   }
 
   return (

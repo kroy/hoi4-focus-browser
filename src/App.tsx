@@ -10,7 +10,7 @@ type AppState = {
   treeDefinition: TreeDefinition;
 }
 
-type AppAction = {
+export type AppAction = {
   type: string;
   focusId: number;
 }
@@ -19,7 +19,8 @@ const testData: NodeDict = {
   0: {
     focus: {
       id: 0,
-      name: "The Path of Marxism-Leninism"
+      name: "The Path of Marxism-Leninism",
+      mutuallyExclusiveIds: [],
     },
     preReqIds: [],
     directChildIds: [1, 2]
@@ -27,15 +28,17 @@ const testData: NodeDict = {
   1: {
     focus: {
       id: 1,
-      name: "Stalinism"
-    },
+      name: "Stalinism",
+      mutuallyExclusiveIds: [2],
+  },
     preReqIds: [0],
     directChildIds: []
   },
   2: {
     focus:{
       id: 2,
-      name: "The Left Opposition"
+      name: "The Left Opposition",
+      mutuallyExclusiveIds: [1],
     },
     preReqIds: [0],
     directChildIds: []

@@ -1,5 +1,5 @@
 import React from 'react';
-import TreeDefinition from '../../datatypes/TreeDefinition';
+import TreeDefinition from '@/datatypes/TreeDefinition';
 import TreeNode from './TreeNode';
 
 // this is supposed to represent the full focus tree

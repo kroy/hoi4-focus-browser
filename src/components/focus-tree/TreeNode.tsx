@@ -12,27 +12,23 @@ type TreeNodeProps = {
 };
 
 function TreeNode(props: TreeNodeProps) {
-  function isSelected(): boolean {
-    return props.selectedFocusIds.includes(props.id)
-  }
-
-  function nodeData(): NodeData {
-    return props.nodes[props.id]
-  }
-
-  function focusData(): FocusData {
-    return nodeData().focus;
-  }
+  const isSelected: boolean = props.selectedFocusIds.includes(props.id);
+  const nodeData: NodeData = props.nodes[props.id];
+  const focusData: FocusData = nodeData.focus;
+  const mutualExclusionSelected: boolean = focusData.mutuallyExclusiveIds.reduce(
+    (mutualExclusion: boolean, id: number) => mutualExclusion || props.selectedFocusIds.includes(id),
+    false
+  );
 
   function buildChildNode(id: number) {
     return <TreeNode key={id} id={id} selectedFocusIds={props.selectedFocusIds} nodes={props.nodes} />
   }
 
-  const childFocuses = nodeData().directChildIds.map((childId) => buildChildNode(childId));
+  const childFocuses = nodeData.directChildIds.map(childId => buildChildNode(childId));
 
   return (
     <div>
-      <Focus selected={isSelected()} {...focusData()} />
+      <Focus selected={isSelected} selectable={!mutualExclusionSelected} {...focusData} />
       { childFocuses }
     </div>
   );
