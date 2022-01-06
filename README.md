@@ -1,10 +1,10 @@
 # TODOS
-[ ] Make it pretty
-    [ ] Simple styling for a focus component
-    [ ] Draw lines from parents to children
-[ ] Figure out how to draw focus boxes hierarchically
-[ ] Sort out state management
-[ ] Make types nice and tight
+- [ ] Make it pretty
+    - [ ] Simple styling for a focus component
+    - [ ] Draw lines from parents to children
+- [ ] Figure out how to draw focus boxes hierarchically
+- [ ] Sort out state management
+- [ ] Make types nice and tight
 
 # Getting Started with Create React App
 
