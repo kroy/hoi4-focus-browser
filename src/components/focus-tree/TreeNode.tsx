@@ -1,6 +1,6 @@
 import React from 'react';
-import FocusData from '../../datatypes/FocusData';
-import NodeData, { NodeDict } from '../../datatypes/NodeData';
+import FocusData from '@/datatypes/FocusData';
+import NodeData, { NodeDict } from '@/datatypes/NodeData';
 import Focus from './Focus';
 
 type TreeNodeProps = {
@@ -27,9 +27,11 @@ function TreeNode(props: TreeNodeProps) {
   const childFocuses = nodeData.directChildIds.map(childId => buildChildNode(childId));
 
   return (
-    <div>
+    <div className="flex flex-col">
       <Focus selected={isSelected} selectable={!mutualExclusionSelected} {...focusData} />
-      { childFocuses }
+      <div className="flex flex-row items-center">
+        { childFocuses }
+      </div>
     </div>
   );
 }
