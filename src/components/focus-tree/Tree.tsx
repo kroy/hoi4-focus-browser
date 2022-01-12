@@ -24,8 +24,10 @@ function Tree(props: TreeProps) {
   return (
     <div>
       <h1 className="text-3xl font-bold underline">Selected Focuses: { props.selectedFocusIds.length }</h1>
-      <div className="flex flex-row items-center content-start">
-      { rootNodes }
+      <div className="tf-tree tf-custom">
+        <ul>
+          { rootNodes }
+        </ul>
       </div>
     </div>
 

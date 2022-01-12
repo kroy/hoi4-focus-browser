@@ -1,5 +1,6 @@
 import React, { useContext, memo } from 'react';
 import { AppDispatch } from '../../App';
+import clsx from 'clsx';
 
 type FocusProps = {
   id: number;
@@ -20,7 +21,7 @@ function Focus(props: FocusProps) {
   }
 
   return (
-    <button className={"p-2 border-solid border-2" + (props.selectable ? "" : " border-red-400")} onClick={ handleClick }>
+    <button className={clsx('tf-nc p-2', props.selected && 'selected', !props.selectable && 'unselectable')} onClick={ handleClick }>
       National Focus: {props.name} selected? { props.selected ? "yes" : "no" }
     </button>
   );

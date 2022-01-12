@@ -27,12 +27,14 @@ function TreeNode(props: TreeNodeProps) {
   const childFocuses = nodeData.directChildIds.map(childId => buildChildNode(childId));
 
   return (
-    <div className="flex flex-col">
+    <li>
       <Focus selected={isSelected} selectable={!mutualExclusionSelected} {...focusData} />
-      <div className="flex flex-row items-center">
-        { childFocuses }
-      </div>
-    </div>
+      {childFocuses.length > 0 && 
+        <ul>
+          { childFocuses }
+        </ul>
+      }
+    </li>
   );
 }
 

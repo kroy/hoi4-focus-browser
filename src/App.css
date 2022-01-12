@@ -1,6 +1,19 @@
+@import '~treeflex/dist/css/treeflex.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.tf-custom .tf-nc {
+  @apply hover:bg-yellow-50 border-purple-300
+}
+
+.tf-custom .tf-nc.selected {
+  @apply bg-orange-400 border-orange-500
+}
+
+.tf-custom .tf-nc.unselectable {
+  @apply border-red-400 bg-red-300
+}
 
 .App {
   background-color: cornsilk;
