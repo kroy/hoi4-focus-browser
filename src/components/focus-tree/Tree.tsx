@@ -3,8 +3,10 @@ import TreeNode from './TreeNode';
 import SelectionSummary from './selection-summary/SelectionSummary';
 
 // this is supposed to represent the full focus tree
+// @TODO can we re-use the appstate type here?
 type TreeProps = {
   selectedFocusIds: number[];
+  minimizedFocusIds: number[];
   treeDefinition: TreeDefinition;
 };
 
@@ -15,6 +17,7 @@ function Tree(props: TreeProps) {
       key={id}
       id={id}
       selectedFocusIds={props.selectedFocusIds}
+      minimizedFocusIds={props.minimizedFocusIds}
       nodes={props.treeDefinition.nodes}
     />
   }

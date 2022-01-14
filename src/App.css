@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 .tf-custom .tf-nc {
-  @apply hover:bg-yellow-50 border-purple-300
+  @apply hover:bg-yellow-50 border-purple-300 p-0
 }
 
 .tf-custom .tf-nc.selected {

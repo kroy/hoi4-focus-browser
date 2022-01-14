@@ -7,6 +7,7 @@ type FocusProps = {
   name: string;
   selected: boolean;
   selectable: boolean;
+  minimized: boolean;
 };
 
 function Focus(props: FocusProps) {
@@ -20,10 +21,22 @@ function Focus(props: FocusProps) {
     }
   }
 
+  function minimize() {
+    dispatch({
+      type: props.minimized ? "maximize" : "minimize",
+      focusId: props.id,
+    });
+  }
+
   return (
-    <button className={clsx('tf-nc p-2', props.selected && 'selected', !props.selectable && 'unselectable')} onClick={ handleClick }>
-      National Focus: {props.name} selected? { props.selected ? "yes" : "no" }
-    </button>
+    <div className={clsx('tf-nc', props.selected && 'selected', !props.selectable && 'unselectable')}>
+      <button onClick={minimize}>
+        { props.minimized ? "Maximize" : "Minimize" }
+      </button>
+      <button className="p-2" onClick={ handleClick }>
+        National Focus: {props.name} selected? { props.selected ? "yes" : "no" }
+      </button>
+    </div>
   );
 }
 
