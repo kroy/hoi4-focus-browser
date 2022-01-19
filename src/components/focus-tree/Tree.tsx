@@ -1,6 +1,7 @@
-import React from 'react';
 import TreeDefinition from '@/datatypes/TreeDefinition';
+import React from 'react';
 import TreeNode from './TreeNode';
+import SelectionSummary from './SelectionSummary';
 
 // this is supposed to represent the full focus tree
 type TreeProps = {
@@ -23,7 +24,7 @@ function Tree(props: TreeProps) {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">Selected Focuses: { props.selectedFocusIds.length }</h1>
+      <SelectionSummary selectedFocusIds={props.selectedFocusIds} nodes={props.treeDefinition.nodes}/>
       <div className="tf-tree tf-custom">
         <ul>
           { rootNodes }

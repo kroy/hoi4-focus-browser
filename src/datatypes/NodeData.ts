@@ -2,7 +2,6 @@ import FocusData from './FocusData';
 
 type NodeData = {
   focus: FocusData;
-  preReqIds: number[];
   directChildIds: number[];
 }
 
