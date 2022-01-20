@@ -1,7 +1,7 @@
 import TreeDefinition from '@/datatypes/TreeDefinition';
 import React from 'react';
 import TreeNode from './TreeNode';
-import SelectionSummary from './SelectionSummary';
+import SelectionSummary from './selection-summary/SelectionSummary';
 
 // this is supposed to represent the full focus tree
 type TreeProps = {
