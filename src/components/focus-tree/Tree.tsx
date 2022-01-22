@@ -1,5 +1,4 @@
 import TreeDefinition from '@/datatypes/TreeDefinition';
-import React from 'react';
 import TreeNode from './TreeNode';
 import SelectionSummary from './selection-summary/SelectionSummary';
 

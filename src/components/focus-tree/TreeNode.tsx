@@ -1,4 +1,3 @@
-import React from 'react';
 import FocusData from '@/datatypes/FocusData';
 import NodeData, { NodeDict } from '@/datatypes/NodeData';
 import Focus from './Focus';
