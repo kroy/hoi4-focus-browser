@@ -7,6 +7,7 @@ type TreeNodeProps = {
   // app state basically; ideally we want just relevant slice
   selectedFocusIds: number[];
   nodes: NodeDict;
+  parentSelectable: boolean;
   // ---
 };
 
@@ -18,16 +19,17 @@ function TreeNode(props: TreeNodeProps) {
     (mutualExclusion: boolean, id: number) => mutualExclusion || props.selectedFocusIds.includes(id),
     false
   );
+  const selectable = props.parentSelectable && !mutualExclusionSelected;
 
   function buildChildNode(id: number) {
-    return <TreeNode key={id} id={id} selectedFocusIds={props.selectedFocusIds} nodes={props.nodes} />
+    return <TreeNode key={id} id={id} selectedFocusIds={props.selectedFocusIds} nodes={props.nodes} parentSelectable={selectable} />
   }
 
   const childFocuses = nodeData.directChildIds.map(childId => buildChildNode(childId));
 
   return (
     <li>
-      <Focus selected={isSelected} selectable={!mutualExclusionSelected} {...focusData} />
+      <Focus selected={isSelected} selectable={selectable} {...focusData} />
       {childFocuses.length > 0 && 
         <ul>
           { childFocuses }

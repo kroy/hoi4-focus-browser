@@ -16,6 +16,7 @@ function Tree(props: TreeProps) {
       id={id}
       selectedFocusIds={props.selectedFocusIds}
       nodes={props.treeDefinition.nodes}
+      parentSelectable={true}
     />
   }
 
