@@ -1,13 +1,3 @@
-# TODOS
-- [ ] Make it pretty
-    - [ ] Simple styling for a focus component
-    - [ ] Draw lines from parents to children
-- [ ] Figure out how to draw focus boxes hierarchically
-- [ ] Sort out state management
-    -  [ ] Also think about where to dispatch from
-- [ ] Make types nice and tight
-- [ ] Add tests :seenoevil:
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
